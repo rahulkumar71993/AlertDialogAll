@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     TextView btn;
     String[] name = {"Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul", "Rahul",};
-
+    BottomSheetDialog mBottomSheetDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                BottomSheetDialog mBottomSheetDialog = new BottomSheetDialog(MainActivity.this, R.style.BottomSheetDialog);
+              mBottomSheetDialog = new BottomSheetDialog(MainActivity.this, R.style.BottomSheetDialog);
                 View sheetView = getLayoutInflater().inflate(R.layout.list_dialog, null);
                 mBottomSheetDialog.setContentView(sheetView);
 
@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(MainActivity.this, ""+getLayoutPosition(), Toast.LENGTH_SHORT).show();
+
+                    mBottomSheetDialog.dismiss();
                 }
             });
         }
